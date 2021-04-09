@@ -6,7 +6,9 @@ const Root = styled.div``;
 const Subject = ({ title, sub }) => {
   return (
     <Root>
-      <h1>{title}</h1>
+      <h1>
+        <a href="/">{title}</a>
+      </h1>
       {sub}
     </Root>
   );
