@@ -15,6 +15,6 @@ const Subject = ({ title, sub, onClick }) => {
       {sub}
     </Root>
   );
-};
+};  
 
 export default Subject;
