@@ -19,7 +19,7 @@ const Gugudan = () => {
     result: '',
   });
   const [score, setScore] = React.useState(0);
-  const inputRef = React.useRef();
+  const inputRef = React.useRef(null);
 
   const resultHandle = (value) => {
     if (!value) {
@@ -35,8 +35,6 @@ const Gugudan = () => {
     } else {
       setGugudan((prev) => ({
         ...prev,
-        first: Math.ceil(Math.random() * 20),
-        second: Math.ceil(Math.random() * 20),
         value: '',
         result: '땡',
       }));
