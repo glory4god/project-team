@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+const StyleLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
 const Menu = styled.ol`
   li {
     font-size: 2rem;
-  }
-  Link {
-    text-decoration: none;
   }
 `;
 
@@ -16,13 +17,13 @@ const GameMain = () => {
     <>
       <Menu>
         <li>
-          <Link to="/">Main</Link>
+          <StyleLink to="/">Main</StyleLink>
         </li>
         <li>
-          <Link to="/gugudan">Gugudan</Link>
+          <StyleLink to="/gugudan">Gugudan</StyleLink>
         </li>
         <li>
-          <Link to="/wordrelay">WordRelay</Link>
+          <StyleLink to="/wordrelay">WordRelay</StyleLink>
         </li>
       </Menu>
     </>
