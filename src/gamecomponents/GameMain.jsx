@@ -25,6 +25,9 @@ const GameMain = () => {
         <li>
           <StyleLink to="/wordrelay">WordRelay</StyleLink>
         </li>
+        <li>
+          <StyleLink to="/numberbaseball">NumberBaseball</StyleLink>
+        </li>
       </Menu>
     </>
   );

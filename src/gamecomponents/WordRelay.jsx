@@ -16,6 +16,7 @@ const WordRelay = () => {
     result: '',
   });
   const inputRef = React.useRef(null);
+  const [list, setList] = React.useState([]);
 
   const onChange = (e) => {
     setWord((prev) => ({
@@ -32,6 +33,7 @@ const WordRelay = () => {
         value: '',
         result: '딩동댕',
       });
+      setList([...list, word.word]);
       inputRef.current.focus();
     } else {
       setWord((prev) => ({
@@ -51,6 +53,12 @@ const WordRelay = () => {
         <Button>입력</Button>
       </form>
       <div>{word.result}</div>
+      <p>기록 :</p>
+      {list.map((idx, key) => (
+        <div key={key}>
+          {key + 1} : {idx}
+        </div>
+      ))}
     </Root>
   );
 };
