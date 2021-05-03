@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import UserLocation from '../components/UserLocation';
 
 const StyleLink = styled(Link)`
   text-decoration: none;
@@ -27,6 +28,9 @@ const GameMain = () => {
         </li>
         <li>
           <StyleLink to="/numberbaseball">NumberBaseball</StyleLink>
+        </li>
+        <li>
+          <StyleLink to="/find">FindingLocation</StyleLink>
         </li>
       </Menu>
     </>
