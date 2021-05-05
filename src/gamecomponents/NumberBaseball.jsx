@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Try from './Try';
 
 const Root = styled.section`
   margin-top: 2rem;
@@ -18,58 +19,67 @@ const getNumbers = () => {
   return array;
 };
 
-const NumberBaseball = () => {
-  const [tries, setTries] = React.useState({
-    result: '',
-    value: '',
-  });
+const NumberBaseball = React.memo(() => {
+  const [value, setValue] = React.useState('');
   const [answer, setAnswer] = React.useState(getNumbers());
-
   const [tryList, setTryList] = React.useState([]);
+  const inputRef = React.useRef();
 
-  const onSubmit = (e) => {
-    if (tries.value === answer.join('')) {
-      setTries((prev) => ({
-        ...prev,
-        result: '홈런',
-      }));
-      setTryList([...tryList, { try: tries.value, result: tries.result }]);
+  const onSubmit = () => {
+    if (value.length !== 4) {
+      alert('숫자는 4개만 입력해주세요');
+      setValue('');
+      return;
+    }
+    if (value === answer.join('')) {
+      setTryList((tryList) => [...tryList, { try: value, result: '홈런' }]);
+      window.alert('이겼습니다');
       setAnswer(getNumbers());
+      setValue('');
+      setTryList([]);
     } else {
-      const answerArray = tries.value.split('').map((v) => parseInt(v));
+      const answerArray = value.split('').map((v) => parseInt(v));
       let strike = 0;
       let ball = 0;
       for (let i = 0; i < 4; i++) {
         if (answerArray[i] === answer[i]) {
           strike += 1;
-        } else if (answer.incluedes(answerArray[i])) {
+        } else if (answer.includes(answerArray[i])) {
           ball += 1;
         }
       }
-      setTries((prev) => ({
-        ...prev,
-        result: '볼',
-      }));
-      setTryList([...tryList, { try: tries.value, result: tries.result }]);
+
+      setTryList((tryList) => [
+        ...tryList,
+        { try: value, result: `${strike}스트라이크 ${ball}볼 입니다` },
+      ]);
+      setValue('');
     }
   };
-  const onChange = () => {};
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <Root>
-      <div>{tries.result}</div>
-      <form onSubmit={onSubmit}>
-        <Input onChange={onChange} value={tries.value}></Input>
-        <Button>click</Button>
-      </form>
+      <div>{answer}</div>
+      <Input
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            onSubmit();
+          }
+        }}
+        onChange={onChange}
+        value={value}></Input>
+      <Button onClick={onSubmit}>click</Button>
       <div>시도 : {tryList.length}</div>
       <ul>
         {tryList.map((idx, key) => (
-          <li>{idx}</li>
+          <Try key={`${key + 1}차 시도`} idx={idx} />
         ))}
       </ul>
     </Root>
   );
-};
+});
 
 export default NumberBaseball;
