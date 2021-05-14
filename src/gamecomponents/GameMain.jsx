@@ -31,6 +31,10 @@ const GameMain = () => {
         <li>
           <StyleLink to="/find">FindingLocation</StyleLink>
         </li>
+
+        <li>
+          <StyleLink to="/response">ResponseTimeCheck</StyleLink>
+        </li>
       </Menu>
     </>
   );
