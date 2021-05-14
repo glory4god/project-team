@@ -9,21 +9,30 @@ const Root = styled.section`
   padding-left: 2rem;
 `;
 
-const getNumbers = () => {
-  const candidate = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const array = [];
-  for (let i = 0; i < 4; i++) {
-    const chosen = candidate.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
-    array.push(chosen);
-  }
-  return array;
-};
-
 const NumberBaseball = React.memo(() => {
   const [value, setValue] = React.useState('');
-  const [answer, setAnswer] = React.useState(getNumbers());
   const [tryList, setTryList] = React.useState([]);
+  const [answer, setAnswer] = React.useState(null);
   const inputRef = React.useRef();
+
+  const getNumbers = () => {
+    console.log('getnumbers');
+    const candidate = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const array = [];
+    for (let i = 0; i < 4; i++) {
+      const chosen = candidate.splice(
+        Math.floor(Math.random() * (9 - i)),
+        1,
+      )[0];
+      array.push(chosen);
+    }
+    return array;
+  };
+
+  // 함수 재사용 최적화 과정!!
+  React.useEffect(() => {
+    setAnswer(getNumbers());
+  }, []);
 
   const onSubmit = () => {
     if (value.length !== 4) {
@@ -55,20 +64,24 @@ const NumberBaseball = React.memo(() => {
       ]);
       setValue('');
     }
+    inputRef.current.focus();
   };
   const onChange = (e) => {
     setValue(e.target.value);
+  };
+
+  const keyDown = (e) => {
+    if (e.key === 'Enter') {
+      onSubmit();
+    }
   };
 
   return (
     <Root>
       <div>{answer}</div>
       <Input
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            onSubmit();
-          }
-        }}
+        inputRef={inputRef}
+        onKeyDown={keyDown}
         onChange={onChange}
         value={value}></Input>
       <Button onClick={onSubmit}>click</Button>
