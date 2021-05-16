@@ -1,18 +1,19 @@
 import React from 'react';
 import { Route } from 'react-router';
 import styled from 'styled-components';
-import UserLocation from './components/UserLocation';
-import GameMain from './gamecomponents/GameMain';
-import Gugudan from './gamecomponents/Gugudan';
-import NumberBaseball from './gamecomponents/NumberBaseball';
-import ResponseTimeCheck from './gamecomponents/ResponseTimeCheck';
-import WordRelay from './gamecomponents/WordRelay';
+import UserLocation from './user-location/UserLocation';
+import GameMain from './game-components/GameMain';
+import Gugudan from './game-components/Gugudan';
+import NumberBaseball from './game-components/NumberBaseball';
+import ResponseTimeCheck from './game-components/ResponseTimeCheck';
+import WordRelay from './game-components/WordRelay';
 
 const Root = styled.div``;
 
 const App = () => {
   return (
     <Root>
+      {/* <UserLocation /> */}
       <Route path="/" component={GameMain}></Route>
       <Route path="/gugudan" component={Gugudan}></Route>
       <Route path="/wordrelay" component={WordRelay}></Route>

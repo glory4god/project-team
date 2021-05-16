@@ -9,7 +9,7 @@ const Root = styled.section`
   padding-left: 1rem;
 `;
 
-const WordRelay = () => {
+const WordRelay = React.memo(() => {
   const [word, setWord] = React.useState({
     word: '유하영',
     value: '',
@@ -61,6 +61,6 @@ const WordRelay = () => {
       ))}
     </Root>
   );
-};
+});
 
 export default WordRelay;
