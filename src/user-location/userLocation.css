@@ -1,0 +1,52 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.mainWrap {
+  margin: 0 auto;
+  width: 328px;
+}
+
+.back {
+  margin-bottom: 35px;
+}
+
+.mainTitle {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 35px;
+}
+
+.addPerson {
+  width: 328px;
+  height: 40px;
+  background: #c1ebfd;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.addPerson:hover {
+  cursor: pointer;
+  border: 2px solid #c1ebfd;
+  background: none;
+}
+
+.searchBtn {
+  width: 328px;
+  height: 48px;
+  background: #7cdacb;
+  border: none;
+  border-radius: 10px;
+  margin-top: 300px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.searchBtn:hover {
+  cursor: pointer;
+  border: 2px solid #7cdacb;
+  background: none;
+}
