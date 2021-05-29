@@ -14,29 +14,30 @@ const Menu = styled.ol`
 
 const GameMain = () => {
   return (
-    <>
-      <Menu>
-        <li>
-          <StyleLink to="/">Main</StyleLink>
-        </li>
-        <li>
-          <StyleLink to="/gugudan">Gugudan</StyleLink>
-        </li>
-        <li>
-          <StyleLink to="/wordrelay">WordRelay</StyleLink>
-        </li>
-        <li>
-          <StyleLink to="/numberbaseball">NumberBaseball</StyleLink>
-        </li>
-        <li>
-          <StyleLink to="/find">FindingLocation</StyleLink>
-        </li>
+    <Menu>
+      <li>
+        <StyleLink to="/">Main</StyleLink>
+      </li>
+      <li>
+        <StyleLink to="/gugudan">Gugudan</StyleLink>
+      </li>
+      <li>
+        <StyleLink to="/wordrelay">WordRelay</StyleLink>
+      </li>
+      <li>
+        <StyleLink to="/numberbaseball">NumberBaseball</StyleLink>
+      </li>
+      <li>
+        <StyleLink to="/find">FindingLocation</StyleLink>
+      </li>
 
-        <li>
-          <StyleLink to="/response">ResponseTimeCheck</StyleLink>
-        </li>
-      </Menu>
-    </>
+      <li>
+        <StyleLink to="/response">ResponseTimeCheck</StyleLink>
+      </li>
+      <li>
+        <StyleLink to="/rsp">RSP</StyleLink>
+      </li>
+    </Menu>
   );
 };
 

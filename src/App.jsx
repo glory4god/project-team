@@ -7,6 +7,7 @@ import Gugudan from './game-components/Gugudan';
 import NumberBaseball from './game-components/NumberBaseball';
 import ResponseTimeCheck from './game-components/ResponseTimeCheck';
 import WordRelay from './game-components/WordRelay';
+import RSP from './game-components/RSP';
 
 const Root = styled.div``;
 
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/numberbaseball" component={NumberBaseball}></Route>
       <Route path="/find" component={UserLocation}></Route>
       <Route path="/response" component={ResponseTimeCheck}></Route>
+      <Route path="/rsp" component={RSP}></Route>
     </Root>
   );
 };
